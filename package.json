@@ -1,0 +1,22 @@
+{
+  "name": "icmod",
+  "version": "1.0.0",
+  "description": "A CLI to manage a TODO list",
+  "main": "icmod.js",
+  "keywords": [
+    "MIT"
+  ],
+  "author": "Shahed Nasser",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^7.2.0",
+    "conf": "^9.0.2",
+    "inquirer": "^9.1.1",
+    "node-adb": "^0.1.6",
+    "toml": "^3.0.0"
+  },
+  "bin": {
+    "icmod": "icmod.js"
+  }
+}

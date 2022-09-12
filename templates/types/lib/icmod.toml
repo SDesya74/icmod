@@ -1,0 +1,9 @@
+[package]
+name = "{% name %}"
+version = "{% version %}"
+
+[assets]
+gui = "assets/gui"
+resources = "assets/resources"
+behavior-packs = "assets/behavior_packs"
+resource-packs = "assets/resource_packs"
