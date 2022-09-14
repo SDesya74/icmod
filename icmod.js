@@ -19,30 +19,30 @@ program
   )
   .option(
     "--force",
-    "Will recreate the project, even if a folder with the same name exists.",
+    "Will recreate the project, even if a folder with the same name exists",
   )
   .action(create)
 
 program
-  .command("push")
-  .description("Push mod to device")
+  .command("run")
+  .description("Run mod on device")
   .option("--no-launch")
   .option("--select-pack")
-  .option("-p, --pack")
-  .option("--release", "Release build")
-  .action(push)
+  .option("-p, --pack <pack>")
+  .option("-r, --release", "Release build")
+  .action(run)
 
-program.command("connect").description("Connect to device.").action(connect)
+program.command("connect").description("Connect to device").action(connect)
 
 program
   .command("disconnect")
-  .description("Disconnect from device.")
+  .description("Disconnect from device")
   .action(disconnect)
 
 program
   .command("build")
   .description("Build the project")
-  .option("--release", "Release build")
+  .option("-r, --release", "Release build")
   .action(build)
 
 program.parse()

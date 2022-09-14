@@ -1,0 +1,10 @@
+# enabled = { value = true, title = { en = "Enable mod", ru = "Включить мод" } }
+
+[enabled]
+value = true
+en = "Enable mod"
+ru = "Включить мод"
+
+[nested]
+foo = true
+bar = 1

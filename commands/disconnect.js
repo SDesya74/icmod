@@ -1,8 +1,8 @@
-const adb = require("../utils/adb")
+import adb from "../utils/adb.js"
 
 /// Disconnect from all devices
 async function disconnect() {
   adb.disconnect()
 }
 
-module.exports = disconnect
+export default disconnect

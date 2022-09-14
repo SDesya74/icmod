@@ -2,6 +2,10 @@
 name = "{% name %}"
 version = "{% version %}"
 
+[build]
+api = "CoreEngine"
+launcher = "launcher.js"
+
 [assets]
 gui = "assets/gui"
 resources = "assets/resources"

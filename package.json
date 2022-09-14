@@ -1,21 +1,29 @@
 {
   "name": "icmod",
-  "version": "1.0.0",
-  "description": "A CLI to manage a TODO list",
+  "version": "0.2.0",
+  "description": "A cli to develop mods for Horizon/InnerCore",
   "main": "icmod.js",
   "type": "module",
   "keywords": [
     "MIT"
   ],
-  "author": "Shahed Nasser",
+  "author": "SDesya74",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^7.2.0",
     "conf": "^9.0.2",
+    "deepmerge": "^4.2.2",
+    "glob": "^8.0.3",
     "inquirer": "^9.1.1",
+    "ip": "^1.1.8",
+    "is-ip": "^5.0.0",
     "node-adb": "^0.1.6",
-    "toml": "^3.0.0"
+    "ora": "^6.1.2",
+    "ping-scanner": "^0.1.0",
+    "toml": "^3.0.0",
+    "typescript": "^4.8.3",
+    "zip-local": "^0.3.5"
   },
   "bin": {
     "icmod": "icmod.js"

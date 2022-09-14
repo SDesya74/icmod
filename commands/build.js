@@ -1,37 +1,26 @@
-const chalk = require("chalk")
-const fs = require("fs")
-const path = require("path")
-const toml = require("toml")
-
-const ICMOD_FILE = "icmod.toml"
-const OUTPUT_DIR = "dist"
+import createBuilder from "../utils/builder.js"
+import conf from "../utils/conf.js"
+import loadIcmodConfig from "../utils/icmod_config.js"
+import { finishState, setState, states } from "../utils/out.js"
 
 /// Command to build .icmod file in debug or release mode
 async function build(options) {
-  let project_dir = process.cwd()
-  while (
-    !fs.existsSync(path.join(project_dir, ICMOD_FILE)) &&
-    project_dir !== path.dirname(project_dir)
-  )
-    project_dir = path.dirname(project_dir)
+  try {
+    const mode = options.release ? "release" : "debug"
 
-  let icmod_file = path.join(project_dir, ICMOD_FILE)
-  if (!fs.existsSync(icmod_file)) {
-    console.log(chalk.red("Build Error") + `: icmod.toml not found`)
-    return
+    const icmod = loadIcmodConfig(process.cwd())
+    conf.init(icmod.config.package.name)
+
+    const builder = createBuilder(icmod, mode)
+
+    for (let state of builder.build()) setState(state)
+    for (let state of builder.bundle()) setState(state)
+  } catch (e) {
+    finishState()
+    console.log(e)
+  } finally {
+    finishState()
   }
-
-  let icmod = toml.parse(fs.readFileSync(icmod_file))
-
-  const mode = options.release ? "release" : "debug"
-
-  let dist_dir = join(project_dir, OUTPUT_DIR, mode)
-  fs.mkdirSync(dist_dir, { recursive: true })
-
-  // TODO: Create mod.info
-  // TODO: Create build.config
-  // TODO: Create includes
-  // TODO: Copy resources
 }
 
-module.exports = build
+export default build
