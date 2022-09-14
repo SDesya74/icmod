@@ -15,7 +15,7 @@ program
   .option(
     "-f, --features <features...>",
     "Included features (typescript, native, java)",
-    []
+    [],
   )
   .action(create)
 
