@@ -17,6 +17,10 @@ program
     "Included features (typescript, native, java)",
     [],
   )
+  .option(
+    "--force",
+    "Will recreate the project, even if a folder with the same name exists.",
+  )
   .action(create)
 
 program
