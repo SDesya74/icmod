@@ -1,8 +1,7 @@
-const adb_callback = require("node-adb")
-const os = require("os")
-const conf = new (require("conf"))()
-const chalk = require("chalk")
-const { resolve } = require("path")
+import adb_callback from "node-adb"
+import { EOL } from "os"
+import conf from "./conf.js"
+import { join } from "path"
 
 const adb = {
   port: 5555, // TODO: Save in conf
@@ -10,7 +9,7 @@ const adb = {
     return new Promise((r) => adb_callback(params, r))
   },
   async devices() {
-    const lines = (await adb.call({ shell: ["devices"] })).split(os.EOL)
+    const lines = (await adb.call({ shell: ["devices"] })).split(EOL)
     const device_lines = lines.slice(1, lines.length - 2)
 
     return device_lines.map((e) => {
@@ -63,4 +62,4 @@ function device_handle(id) {
   }
 }
 
-module.exports = adb
+export default adb

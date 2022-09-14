@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 
-const { program } = require("commander")
+import { program } from "commander"
 
-const create = require("./commands/create")
-const push = require("./commands/push")
-const connect = require("./commands/connect")
-const disconnect = require("./commands/disconnect")
-const build = require("./commands/build")
+import create from "./commands/create.js"
+import run from "./commands/run.js"
+import connect from "./commands/connect.js"
+import disconnect from "./commands/disconnect.js"
+import build from "./commands/build.js"
 
 program
   .command("new <name>")

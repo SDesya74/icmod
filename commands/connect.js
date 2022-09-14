@@ -1,6 +1,6 @@
-const adb = require("../utils/adb")
-const conf = new (require("conf"))()
-const chalk = require("chalk")
+import adb from "../utils/adb.js"
+import conf from "../utils/conf.js"
+import chalk from "chalk"
 
 async function connect() {
   const inquirer = (await import("inquirer")).default // TODO: Remove dynamic import
